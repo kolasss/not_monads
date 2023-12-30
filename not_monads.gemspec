@@ -8,11 +8,11 @@ Gem::Specification.new do |spec|
   spec.authors = ['kolas']
   spec.email = ['kolas.krytoi@gmail.com']
 
-  spec.summary = 'Gem for service objects.'
+  spec.summary = 'Simple service objects'
   # spec.description = "TODO: Write a longer description or delete this line."
   spec.homepage = 'https://github.com/kolasss/not_monads'
   spec.license = 'MIT'
-  spec.required_ruby_version = '>= 3.3.0'
+  spec.required_ruby_version = '>= 3.0.0'
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
