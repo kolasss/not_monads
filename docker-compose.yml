@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  not_monads:
+    image: not_monads
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: not_monads
+    volumes:
+      - .:/app:cached
+      - bundle:/usr/local/bundle
