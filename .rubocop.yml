@@ -8,5 +8,11 @@ AllCops:
   TargetRubyVersion: 3.0
   NewCops: enable
 
-Layout/LineLength:
-  Max: 120
+Style/Documentation:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Max: 4
+
+Style/CaseEquality:
+  Enabled: false
