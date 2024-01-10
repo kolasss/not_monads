@@ -2,7 +2,7 @@ FROM ruby:3.3-alpine
 
 LABEL Name=not_monads Version=0.1.0
 
-RUN apk add --update git
+RUN apk add --update git openssh-client
 
 # throw errors if Gemfile has been modified since Gemfile.lock
 # RUN bundle config --global frozen 1

@@ -10,6 +10,11 @@ services:
     volumes:
       - .:/app:cached
       - bundle:/usr/local/bundle
+      - type: bind
+        source: /run/host-services/ssh-auth.sock
+        target: /run/host-services/ssh-auth.sock
+    environment:
+      - SSH_AUTH_SOCK=/run/host-services/ssh-auth.sock
 
 volumes:
   bundle:
