@@ -1,24 +1,50 @@
 # NotMonads
 
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/not_monads`. To experiment with that code, run `bin/console` for an interactive prompt.
+Simple copy of [dry-monads](https://github.com/dry-rb/dry-monads) do monads, it implements only mixin for your service object and Success/Failure result object.
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
-
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+    $ bundle add not_monads
+
+or add to Gemfile
+
+    gem 'not_monads'
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+    $ gem install not_monads
 
 ## Usage
 
-TODO: Write usage instructions here
+Add module to your class with prepend:
+
+```
+class CreateUser
+    prepend NotMonads::Do[:call]
+
+    def call(params)
+      do_something validate(params)
+      user = do_something save(params)
+      Success(user)
+    end
+
+    private
+
+    def validate(params)
+      Success() || Failure(:error)
+    end
+
+    def save(params)
+      Success(user) || Failure(errors)
+    end
+  end
+end
+```
+
+Prepend with a module call with array of method names in square brackets. (`prepend NotMonads::Do[:call, :step1, :step3]`) Use method `do_something` to verify result, just like dry-monads with `yield` (`do_something` is a temporary method name, idk how to name it better yet)
+
 
 ## Development
 

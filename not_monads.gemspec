@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ['kolas.krytoi@gmail.com']
 
   spec.summary = 'Simple service objects'
-  # spec.description = "TODO: Write a longer description or delete this line."
+  spec.description = 'Simple copy of [dry-monads](https://github.com/dry-rb/dry-monads) do monads, it implements only mixin for your service object and Success/Failure result object.' # rubocop:disable Layout/LineLength
   spec.homepage = 'https://github.com/kolasss/not_monads'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 3.0.0'
