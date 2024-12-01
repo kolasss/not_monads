@@ -16,6 +16,7 @@ jobs:
         ruby:
           - '3.0.0'
           - '3.3.0'
+          - '3.3.6'
     steps:
       - uses: actions/checkout@v4
       - name: Set up Ruby
@@ -34,6 +35,7 @@ jobs:
         ruby:
           - '3.0.0'
           - '3.3.0'
+          - '3.3.6'
     steps:
       - uses: actions/checkout@v4
       - name: Set up Ruby

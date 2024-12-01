@@ -1,5 +1,3 @@
-version: '3.4'
-
 services:
   not_monads:
     image: not_monads
