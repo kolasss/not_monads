@@ -15,8 +15,8 @@ module NotMonads
       end
       # rubocop:enable Naming/MethodName
 
-      def do_something(result)
-        return result.success if result.success?
+      def doit(result)
+        return result.value! if result.success?
 
         halt(result)
       end

@@ -10,7 +10,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    name: Ruby ${{ matrix.ruby }}
+    name: Ruby ${{ matrix.ruby }} rspec
     strategy:
       matrix:
         ruby:
@@ -29,7 +29,7 @@ jobs:
 
   lint:
     runs-on: ubuntu-latest
-    name: Ruby ${{ matrix.ruby }}
+    name: Ruby ${{ matrix.ruby }} rubocop
     strategy:
       matrix:
         ruby:

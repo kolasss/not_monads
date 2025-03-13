@@ -2,14 +2,11 @@
 
 module NotMonads
   class Result
-    attr_reader :success, :failure
+    def initialize(value)
+      @value = value
+    end
 
     class Success < Result
-      def initialize(value)
-        super()
-        @success = value
-      end
-
       def failure?
         false
       end
@@ -19,16 +16,16 @@ module NotMonads
       end
 
       def to_s
-        "Success(#{success.inspect})"
+        "Success(#{value!.inspect})"
       end
       alias inspect to_s
 
       def value!
-        success
+        @value
       end
 
       def value_or(_val = nil)
-        success
+        @value
       end
 
       def ==(other)
@@ -41,11 +38,6 @@ module NotMonads
     end
 
     class Failure < Result
-      def initialize(value)
-        super()
-        @failure = value
-      end
-
       def failure?
         true
       end
@@ -69,6 +61,10 @@ module NotMonads
         else
           val
         end
+      end
+
+      def failure
+        @value
       end
 
       def ==(other)

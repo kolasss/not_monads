@@ -8,22 +8,22 @@ RSpec.describe 'NotMonads::Do' do
         prepend NotMonads::Do[:call, :square, :double]
 
         def call(starting_value)
-          value = do_something square(starting_value)
-          value = do_something double_value(value)
+          value = doit square(starting_value)
+          value = doit double_value(value)
           Success(value)
         end
 
         protected
 
         def square(starting_value)
-          s = do_something Success(starting_value * starting_value)
+          s = doit Success(starting_value * starting_value)
           Success(s)
         end
 
         private
 
         def double_value(starting_value)
-          d = do_something Success(starting_value + starting_value)
+          d = doit Success(starting_value + starting_value)
           Success(d)
         end
       end

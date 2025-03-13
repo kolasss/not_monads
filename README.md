@@ -25,8 +25,8 @@ class CreateUser
     prepend NotMonads::Do[:call]
 
     def call(params)
-      do_something validate(params)
-      user = do_something save(params)
+      doit validate(params)
+      user = doit save(params)
       Success(user)
     end
 
@@ -43,8 +43,28 @@ class CreateUser
 end
 ```
 
-Prepend with a module call with array of method names in square brackets. (`prepend NotMonads::Do[:call, :step1, :step3]`) Use method `do_something` to verify result, just like dry-monads with `yield` (`do_something` is a temporary method name, idk how to name it better yet)
+Prepend with a module call with array of method names in square brackets. (`prepend NotMonads::Do[:call, :step1, :step3]`) Use method `doit` to verify result, just like dry-monads with `yield`.
 
+Then you can access result just like in dry-monads:
+
+For success
+
+```
+result = CreateUser.new.call(params)
+result.success? # true
+result.value! # User#123
+result.value_or(42) # User#123
+```
+
+For failure
+
+```
+result = CreateUser.new.call(params)
+result.success? # false
+result.value! # raises NotMonads::Error
+result.value_or(42) # 42
+result.failure # user.errors
+```
 
 ## Development
 
