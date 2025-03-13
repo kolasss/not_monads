@@ -20,7 +20,7 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 Add module to your class with prepend:
 
-```
+```ruby
 class CreateUser
     prepend NotMonads::Do[:call]
 
@@ -49,7 +49,7 @@ Then you can access result just like in dry-monads:
 
 For success
 
-```
+```ruby
 result = CreateUser.new.call(params)
 result.success? # true
 result.value! # User#123
@@ -58,7 +58,7 @@ result.value_or(42) # User#123
 
 For failure
 
-```
+```ruby
 result = CreateUser.new.call(params)
 result.success? # false
 result.value! # raises NotMonads::Error
@@ -70,9 +70,13 @@ result.failure # user.errors
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine, run `bundle exec rake install`.
+
+To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 To release from docker container make sure your host have access to key `ssh-add -l` and `ssh -T git@github.com`, if no access run `ssh-add`. Then you can release with `bundle exec rake release`.
+
+To run specs `bundle exec rspec`, to run rubocop `bundle exec rubocop`.
 
 ## License
 

@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description = 'Simple copy of [dry-monads](https://github.com/dry-rb/dry-monads) do monads, it implements only mixin for your service object and Success/Failure result object.' # rubocop:disable Layout/LineLength
   spec.homepage = 'https://github.com/kolasss/not_monads'
   spec.license = 'MIT'
-  spec.required_ruby_version = '>= 3.0.0'
+  spec.required_ruby_version = '>= 3.1.0'
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
